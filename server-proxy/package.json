@@ -1,0 +1,11 @@
+{
+  "name": "naive",
+  "description": "A package using naive versioning",
+  "author": "A confused individual <iam@confused.com>",
+  "dependencies": {
+    "express": "3.x"
+  },
+  "devDependencies": {
+    "http-proxy": "~0.10.3"
+  }
+}

@@ -1,0 +1,50 @@
+.hero-unit
+  h1 Bahnen
+  h2 {{title}} 
+      form.form-horizontal(data-ng-submit="createEntity()", name="entityForm")
+          .control-group
+              label.control-label(for="name") Name
+              .controls
+                  input(type="text", data-ng-model="name", placeholder="Name", name="name", required, autofocus)
+          .control-group
+              label.control-label(for="strasse") Strasse
+              .controls
+                  input(type="text", data-ng-model="strasse", placeholder="Strasse", name="strasse", required)
+          .control-group
+              label.control-label(for="hausnummer") Hausnummer
+              .controls
+                  input(type="text", data-ng-model="hausnummer", placeholder="Hausnummer", name="hausnummer", required)
+          .control-group
+              label.control-label(for="plz") Postleitzahl
+              .controls
+                  input(type="text", data-ng-model="plz", placeholder="Postleitzahl", name="plz", required)
+          .control-group
+              label.control-label(for="ort") Ort
+              .controls
+                  input(type="text", data-ng-model="ort", placeholder="Ort", name="ort", required)
+          .control-group
+              .controls
+                  button.btn(type="submit", data-ng-disabled="entityForm.$invalid") Bahn speichern 
+      hr
+  h2 Liste der Bahnen
+  table.table.table-striped(data-ng-hide="loading")
+      thead
+          tr
+              th(data-ng-hide="false")
+              th Name
+              th Strasse
+              th Hausnummer
+              th PLZ
+              th Ort
+              th Aktionen
+      tbody
+          tr(data-ng-repeat="entity in entities")
+              td(data-ng-hide="false") {{ entity._id }}
+              td {{ entity.name }}
+              td {{ entity.strasse }}
+              td {{ entity.hausnummer }}
+              td {{ entity.plz }}
+              td {{ entity.ort }}
+              td
+                button.btn(data-ng-click="updateEntity(entity._id)") Bearbeiten
+                button.btn(data-ng-click="deleteEntity(entity._id)") Löschen
